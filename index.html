@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI_CALCULATOR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="bmi1.webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="start">
+        <h1>BMI CALCULATOR </h1>
+    </div>
+    <div class="explain">
+        <h3>Body Mass Index (BMI) is a person's weight in kilograms (or pounds) divided by the square of height in
+            meters (or feet)</h3>
+    </div>
+    <div class="grid-container">
+        <div class="tbl">
+            <table>
+                <tr>
+                    <th> BMI</th>
+                    <th> Weight Status</th>
+                </tr>
+                <tr>
+                    <td id="uw">Below 18.5</td>
+                    <td> Underweight</td>
+                </tr>
+                <tr>
+                    <td id="hw">18.5—24.9</td>
+                    <td>Healthy Weight</td>
+                </tr>
+                <tr>
+                    <td id="ov">25.0—29.9</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr>
+                    <td id="o">30.0 and Above</td>
+                    <td>Obesity</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="cont">
+            <div>
+                <form action="" onsubmit="sum();return false">
+                    <div>
+                        <label>Name </label>
+                        <input type="text" id="Name" placeholder="Enter your Name">
+                    </div>
+                    <div>
+                        <label>Age</label>
+                        <input type="number" id="Age" placeholder="Enter your Age">
+                    </div>
+                    <div>
+                        <label>Height</label>
+                        <input type="number" id="Height" placeholder="Enter your Height">
+                    </div>
+                    <div>
+                        <label>Weight</label>
+                        <input type="number" id="Weight" placeholder="Enter your Weight">
+                    </div>
+                    <button class="reset" type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+    
+                </form>
+            </div>
+        
+    </div>
+    
+        <div class=""></div>
+        <div class="result">
+            <p><span id="UserName"></span>
+            <p id="result">
+            </p>
+            </p>
+        </div>
+    </div>
+        <div class="re" id="re"></div>
+
+        <div class="run"><img src="giphy.gif" width="100px" height="75px"></div>
+    
+
+    <!-- <a href="script.js"></a> -->
+    <script>
+        function sum() {
+            var w, h, user;
+            user = document.getElementById("Name").value;
+            w = document.getElementById("Weight").value;
+            h = document.getElementById("Height").value;
+            result = (w / ((h / 100) * (h / 100)));
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("UserName").innerHTML = "Hi " + user + ", Your BMI value is =";
+            re = result;
+            if (re < 18.5) {
+                re = "Under Weight";
+                document.getElementById("re").innerHTML = "You need to gain some weight Because, you are " + re;
+            } else if (re >= 18.5 && re <= 24.9) {
+                re = "Healthy Weight";
+                document.getElementById("re").innerHTML = "You are perfectly fit maintain the same Because, you are " + re;
+            } else if (re >= 25 && re <= 29.9) {
+                re = "Over Weight";
+                document.getElementById("re").innerHTML ="You are near to be an perfect fit Because, you are " + re;
+            } else if (re >= 30) {
+                re = "Obesity";
+                document.getElementById("re").innerHTML = "You should maintain an diet in foods Because, you are " + re;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
